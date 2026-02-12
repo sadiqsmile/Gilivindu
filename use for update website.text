@@ -1,0 +1,13 @@
+cd ~/Gilivindu
+git pull
+
+--------------- for pythonanywhere --------------
+
+
+git add .
+git commit -m "updated website"
+git push
+
+
+------------------- for Githubpuch ---------------------
+
