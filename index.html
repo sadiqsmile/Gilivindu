@@ -1315,7 +1315,7 @@
       animateActiveCaption();
     })();
 
-    // Gallery pager: show 4 columns x 2 rows (8 images) with Next/Previous
+    // Gallery pager: show 4 columns x 2 rows (8 images) on desktop and 2 x 2 (4 images) on phones
     (function initGalleryPager() {
       const grid = document.getElementById('galleryGrid');
       const prevBtn = document.getElementById('galleryPrevBtn');
@@ -1323,10 +1323,15 @@
       if (!grid || !prevBtn || !nextBtn) return;
 
       const items = Array.from(grid.children).filter((el) => el.nodeType === 1);
-      const pageSize = 8;
       let page = 0;
+      const smallScreenMedia = window.matchMedia('(max-width: 575.98px)');
+
+      function getPageSize() {
+        return smallScreenMedia.matches ? 4 : 8;
+      }
 
       function render() {
+        const pageSize = getPageSize();
         const start = page * pageSize;
         const end = start + pageSize;
 
@@ -1345,8 +1350,14 @@
       });
 
       nextBtn.addEventListener('click', () => {
+        const pageSize = getPageSize();
         if ((page + 1) * pageSize >= items.length) return;
         page += 1;
+        render();
+      });
+
+      smallScreenMedia.addEventListener('change', () => {
+        page = 0;
         render();
       });
 
