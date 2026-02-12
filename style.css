@@ -571,11 +571,6 @@ section{
   background: #22c55e;
   color: #052e16;
 }
-.floating-call{
-  left: 18px;
-  background: var(--camp-yellow);
-  color: #082f49;
-}
 
 /* Modal */
 .modal-summer{
@@ -597,7 +592,6 @@ section{
   .gallery-grid > div{ width: 50%; }
   .floating-btn{ width: 54px; height: 54px; border-radius: 16px; bottom: 14px; }
   .floating-wa{ right: 12px; }
-  .floating-call{ left: 12px; }
   
   /* Touch-friendly button sizing */
   .btn{ min-height: 44px; padding: .6rem 1.2rem; }
